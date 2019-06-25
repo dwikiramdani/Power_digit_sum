@@ -1,42 +1,26 @@
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
 
-function soal(x) {
-  var range = x;
-  var start = 0;
-
-  var a = 1;
+function soal(angka, kuadrat) {
+  var range = kuadrat;
+  var start = angka;
+  var value = angka;
   var arr1 = [];
-  var arr2 = [];
-  var sumSquare = 0;
-  var sumArray = 0;
-  var arraySquare = 0;
 
-  while (start < range) {
-    var square = a * a;
-    arr1[start] = square;
-    sumSquare = sumSquare + square;
-
-    arr2[start] = a;
-    sumArray = sumArray + a;
-    arraySquare = sumArray * sumArray;
-    a = a + 1;
-    start = start + 1;
+  for (var n = 1; n < range; n++) {
+    start = start * angka;
+    value = start;
   }
-  var diffSquare = arraySquare - sumSquare;
+  var sNumber = value.toString();
+  for (var i = 0, len = sNumber.length; i < len; i += 1) {
+    arr1.push(+sNumber.charAt(i));
+  }
 
-  console.log("Angka dasar");
-  console.log(arr2);
-  console.log("Angka kuadrat");
-  console.log(sumArray);
-  console.log("Angka array");
+  for (var a = 0, sum = 0; a < arr1.length; sum += arr1[a++]);
+
   console.log(arr1);
-  console.log("Sum array Kuadrat");
-  console.log(arraySquare);
-  console.log("Sum kuadrat");
-  console.log(sumSquare);
-  console.log("Selisih");
-  console.log(diffSquare);
+  console.log(value);
+  console.log(sum);
 }
 
-console.log(soal(10));
+console.log(soal(2, 10));
